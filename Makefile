@@ -12,6 +12,7 @@ deploy:
 
 MVN:=mvn
 SRC:=src/main/java
+CSRC:=src/main/c
 SQLITE_OUT:=$(TARGET)/$(sqlite)-$(OS_NAME)-$(OS_ARCH)
 SQLITE_ARCHIVE:=$(TARGET)/$(sqlite)-amal.zip
 SQLITE_UNPACKED:=$(TARGET)/sqlite-unpack.log
@@ -31,6 +32,7 @@ $(SQLITE_ARCHIVE):
 $(SQLITE_UNPACKED): $(SQLITE_ARCHIVE)
 	unzip -qo $< -d $(TARGET)/tmp.$(version)
 	(mv $(TARGET)/tmp.$(version)/$(SQLITE_AMAL_PREFIX) $(TARGET) && rmdir $(TARGET)/tmp.$(version)) || mv $(TARGET)/tmp.$(version)/ $(TARGET)/$(SQLITE_AMAL_PREFIX)
+	cp -f $(CSRC)/sqlite3.c $(TARGET)/$(SQLITE_AMAL_PREFIX)
 	touch $@
 
 

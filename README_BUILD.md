@@ -1,3 +1,22 @@
+Compile a new version of SQLiteJDBC with SEE
+===========================================
+
+This repository has the JDBC driver + SEE library KLA purchased on April 11, 2019.
+
+Build
+----- 
+1. run:
+
+        $ make linux64
+        
+        $ mvn package
+
+2. To build JDBC dll on Windows, run:
+
+        $ make win64
+        
+        $ mvn package
+
 How to compile a new version of SQLiteJDBC
 ===========================================
 Prerequisites
