@@ -32,6 +32,7 @@ $(SQLITE_ARCHIVE):
 $(SQLITE_UNPACKED): $(SQLITE_ARCHIVE)
 	unzip -qo $< -d $(TARGET)/tmp.$(version)
 	(mv $(TARGET)/tmp.$(version)/$(SQLITE_AMAL_PREFIX) $(TARGET) && rmdir $(TARGET)/tmp.$(version)) || mv $(TARGET)/tmp.$(version)/ $(TARGET)/$(SQLITE_AMAL_PREFIX)
+	unzip -qo $(CSRC)/sqlite3.c.zip -d $(CSRC)
 	cp -f $(CSRC)/sqlite3.c $(TARGET)/$(SQLITE_AMAL_PREFIX)
 	touch $@
 
