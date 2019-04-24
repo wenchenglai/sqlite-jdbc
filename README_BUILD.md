@@ -3,6 +3,17 @@ Compile a new version of SQLiteJDBC with SEE
 
 This repository has the JDBC driver + SEE library KLA purchased on April 11, 2019.
 
+We've decided to use the popular SQLite JDBC Driver from [xerial](https://github.com/xerial/sqlite-jdbc).
+
+Usage:
+
+Use the jar file as your sqlite jdbc driver.  You have to use the specific 'SQLiteConnection' object
+instead of the generic java.sql.Connection object because we have custom API.
+
+You can use our api `Boolean SQLiteConnection.isEncryptionEnabled()` to see if the current jar supports automatic encryption - 
+you don't need to specify any password, this jar will automatically encrypt and decrypt the data for you.
+
+
 Build
 ----- 
 1. run:
