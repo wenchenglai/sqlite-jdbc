@@ -482,7 +482,7 @@ public abstract class SQLiteConnection
         return newFilename;
     }
 
-    public Boolean hasEncryptionCapability() {
+    public static Boolean hasEncryptionCapability() {
         return true;
     }
 
