@@ -9,13 +9,13 @@ Build
 
         $ make linux64
         
-        $ mvn package -DskipTests
+        $ mvn package
 
 2. To build JDBC dll on Windows, run:
 
         $ make win64
         
-        $ mvn package -DskipTests
+        $ mvn package
 
 How to compile a new version of SQLiteJDBC
 ===========================================

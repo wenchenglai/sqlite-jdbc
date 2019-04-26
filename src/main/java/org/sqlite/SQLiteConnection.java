@@ -29,7 +29,6 @@ public abstract class SQLiteConnection
     private final DB db;
     private CoreDatabaseMetaData meta = null;
     private final SQLiteConnectionConfig connectionConfig;
-    private static Boolean enableEncryption = false;
 
     /**
      * Connection constructor for reusing an existing DB handle
@@ -176,13 +175,6 @@ public abstract class SQLiteConnection
         // Create a copy of the given properties
         Properties newProps = new Properties();
         newProps.putAll(props);
-
-        // Enable SEE encryption for KLA
-        if (enableEncryption) {
-            if (props.getProperty("password") == null) {
-                newProps.setProperty("password", "e9FkChw3xF");
-            }
-        }
 
         // Extract pragma as properties
         String fileName = extractPragmasFromFilename(url, origFileName, newProps);
@@ -490,13 +482,8 @@ public abstract class SQLiteConnection
         return newFilename;
     }
 
-    /**
-     * Indicates if this library supports encryption and it's enabled or not.
-     *
-     * @return a flag indicating true - supporting encryption
-     */
-    public static Boolean isEncryptionEnabled() {
-        return enableEncryption;
+    public Boolean hasEncryptionCapability() {
+        return true;
     }
 
 }
